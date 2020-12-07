@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F4D300</color>
+    <color name="colorPrimaryDark">#D8BB03</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="list_row_start_color">#E4DE6B</color>
+    <color name="red">#CA0000</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#F4D300</color>
+    <color name="lightyellow">#BFAE16</color>
+    <color name="etStrokeColor">#A89202</color>
+
+</resources>
