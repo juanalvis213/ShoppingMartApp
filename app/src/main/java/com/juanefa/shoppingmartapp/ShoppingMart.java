@@ -1,20 +1,27 @@
 package com.juanefa.shoppingmartapp;
 
 public class ShoppingMart {
-    private String _pilihan, _nama, _nohp, _qty;
-    public ShoppingMart(String pilihan, String nama, String nohp, String qty) {
-        this._pilihan = pilihan;
+    private String _kode, _plh, _nama, _nohp, _qty;
+    public ShoppingMart(String kode, String plh, String nama, String nohp, String qty) {
+        this._kode = kode;
+        this._plh = plh;
         this._nama = nama;
         this._nohp = nohp;
         this._qty = qty;
     }
-    public ShoppingMart(Object o, String sPlh, String sNama, String sNohp, String sQty) {
+    public ShoppingMart() {
     }
-    public String get_pilihan() {
-        return _pilihan;
+    public String get_kode() {
+        return _kode;
     }
-    public void set_pilihan(String _pilihan) {
-        this._pilihan = _pilihan;
+    public void set_kode(String _kode) {
+        this._kode = _kode;
+    }
+    public String get_plh() {
+        return _plh;
+    }
+    public void set_plh(String _plh) {
+        this._plh = _plh;
     }
     public String get_nama() {
         return _nama;

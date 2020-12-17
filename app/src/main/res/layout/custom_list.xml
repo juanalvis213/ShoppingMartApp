@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/rating"
             android:layout_alignLeft="@+id/rating"
-            android:text="Nama Senjata"
+            android:text="Pilihan"
             android:textColor="#000000"
             android:textStyle="bold" />
 

@@ -5,56 +5,65 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainUpdel extends AppCompatActivity {
     private MyDatabase db;
-    private String Skode, Snama, Sharga , Sstok;
-    private EditText Enama, Eharga , Estok;
+    private String sKode, sPlh, sNama, sNohp , sQty;
+    private EditText ePlh, eNama, eNohp , eQty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_updel);
         db = new MyDatabase(this);
         Intent i = this.getIntent();
-        Skode = i.getStringExtra("Ikode");
-        Snama = i.getStringExtra("Inama");
-        Sharga = i.getStringExtra("Iharga");
-        Sstok = i.getStringExtra("Istok");
+        sKode = i.getStringExtra("Ikode");
+        sPlh = i.getStringExtra("Ipilihan");
+        sNama = i.getStringExtra("Inama");
+        sNohp = i.getStringExtra("Iharga");
+        sQty = i.getStringExtra("IQty");
 
-        Enama = (EditText) findViewById(R.id.updel_nama);
-        Eharga = (EditText) findViewById(R.id.updel_harga);
-        Estok = (EditText) findViewById(R.id.updel_stok);
+        ePlh = (EditText) findViewById(R.id.update_pilihan);
+        eNama = (EditText) findViewById(R.id.update_nama);
+        eNohp = (EditText) findViewById(R.id.update_nohp);
+        eQty = (EditText) findViewById(R.id.update_quantity);
 
-        Enama.setText(Snama);
-        Eharga.setText(Sharga);
-        Estok.setText(Sstok);
+        ePlh.setText(sPlh);
+        eNama.setText(sNama);
+        eNohp.setText(sNohp);
+        eQty.setText(sQty);
 
         Button btnUpdate = (Button) findViewById(R.id.btn_up);
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snama = String.valueOf(Enama.getText());
-                Sharga = String.valueOf(Eharga.getText());
-                Sstok = String.valueOf(Estok.getText());
-                if (Snama.equals("")){
-                    Enama.requestFocus();
-                    Toast.makeText(MainUpdel.this, "Silahkan isi nama produk",
+                sPlh = String.valueOf(ePlh.getText());
+                sNama = String.valueOf(eNama.getText());
+                sNohp = String.valueOf(eNohp.getText());
+                sQty = String.valueOf(eQty.getText());
+                if (sPlh.equals("")) {
+                    ePlh.requestFocus();
+                    Toast.makeText(MainUpdel.this, "Silahkan isi Pilihan Anda",
                             Toast.LENGTH_SHORT).show();
-                } else if (Sharga.equals("")){
-                    Eharga.requestFocus();
-                    Toast.makeText(MainUpdel.this, "Silahkan isi harga",
+                } else if (sNama.equals("")){
+                    eNama.requestFocus();
+                    Toast.makeText(MainUpdel.this, "Silahkan Masukkan Nama Pembeli",
                             Toast.LENGTH_SHORT).show();
-                } else if (Sstok.equals("")){
-                    Estok.requestFocus();
-                    Toast.makeText(MainUpdel.this, "Silahkan isi stok ",
+                } else if (sNohp.equals("")){
+                    eNohp.requestFocus();
+                    Toast.makeText(MainUpdel.this, "Silahkan Masukan No HP",
+                            Toast.LENGTH_SHORT).show();
+                } else if (sQty.equals("")){
+                    eQty.requestFocus();
+                    Toast.makeText(MainUpdel.this, "Silahkan Tentukan Quantity",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    db.UpdateSenjata(new ShoppingMart(Skode, Snama, Sharga, Sstok));
-                    Toast.makeText(MainUpdel.this, "Data telah diupdate",
+                    db.UpdateOrder(new ShoppingMart(sKode, sPlh, sNama, sNohp, sQty));
+                    Toast.makeText(MainUpdel.this, "Pesanan anda telah diupdate",
                             Toast.LENGTH_SHORT).show();
                     finish();
                 }
@@ -64,8 +73,8 @@ public class MainUpdel extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.DeleteSenjata(new ShoppingMart(Skode, Snama, Sharga, Sstok));
-                Toast.makeText(MainUpdel.this, "Data telah dihapus",
+                db.DeleteOrder(new ShoppingMart(sKode, sPlh, sNama, sNohp, sQty));
+                Toast.makeText(MainUpdel.this, "Pesanan anda telah dihapus",
                         Toast.LENGTH_SHORT).show();
                 finish();
             }

@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/edittext_background"
-        android:hint="Contoh (Makanan, Minuman, Pulsa, dll"
+        android:hint="Contoh (Makanan, Minuman, Pulsa, dll)"
         android:padding="20dp" />
 
     <EditText

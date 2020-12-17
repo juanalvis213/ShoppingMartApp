@@ -33,14 +33,15 @@ public class MainRead  extends AppCompatActivity implements
 
         List<ShoppingMart> contacts = db.ReadOrder();
         for (ShoppingMart cn : contacts) {
-            ShoppingMart judulModel = new ShoppingMart(sPlh, sNama, sNohp, sQty);
-            judulModel.set_pilihan(cn.get_pilihan());
+            ShoppingMart judulModel = new ShoppingMart();
+            judulModel.set_kode(cn.get_kode());
+            judulModel.set_plh(cn.get_plh());
             judulModel.set_nama(cn.get_nama());
             judulModel.set_nohp(cn.get_nohp());
             judulModel.set_qty(cn.get_qty());
             ListOrder.add(judulModel);
             if ((ListOrder.isEmpty()))
-                Toast.makeText(MainRead.this, "Tidak ada data",
+                Toast.makeText(MainRead.this, "Tidak ada pembelian",
                         Toast.LENGTH_SHORT).show();
             else {
             }
@@ -50,11 +51,13 @@ public class MainRead  extends AppCompatActivity implements
     public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
         Object o = mListView.getItemAtPosition(i);
         ShoppingMart obj_itemDetails = (ShoppingMart) o;
-        String sPlh = obj_itemDetails.get_pilihan();
+        String sKode = obj_itemDetails.get_kode();
+        String sPlh = obj_itemDetails.get_plh();
         String sNama = obj_itemDetails.get_nama();
         String sNohp = obj_itemDetails.get_nohp();
         String sQty = obj_itemDetails.get_qty();
         Intent goUpdel = new Intent(MainRead.this, MainUpdel.class);
+        goUpdel.putExtra("iKode",sKode);
         goUpdel.putExtra("iPilihan", sPlh);
         goUpdel.putExtra("iNama", sNama);
         goUpdel.putExtra("iNohp", sNohp);
@@ -68,14 +71,15 @@ public class MainRead  extends AppCompatActivity implements
         mListView.setAdapter(adapter_off);
         List<ShoppingMart> contacts = db.ReadOrder();
         for (ShoppingMart cn : contacts) {
-            ShoppingMart judulModel = new ShoppingMart (sPlh, sNama, sNohp, sQty);
-            judulModel.set_pilihan(cn.get_pilihan());
+            ShoppingMart judulModel = new ShoppingMart ();
+            judulModel.set_kode(cn.get_kode());
+            judulModel.set_plh(cn.get_plh());
             judulModel.set_nama(cn.get_nama());
             judulModel.set_nohp(cn.get_nohp());
             judulModel.set_qty(cn.get_qty());
             ListOrder.add(judulModel);
             if ((ListOrder.isEmpty()))
-                Toast.makeText(MainRead.this, "Tidak ada data",
+                Toast.makeText(MainRead.this, "Tidak ada pembelian",
                         Toast.LENGTH_SHORT).show();
             else {
             }

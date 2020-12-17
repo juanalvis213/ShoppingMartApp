@@ -44,10 +44,10 @@ public class CustomListAdapter extends BaseAdapter {
         TextView qty = (TextView) convertView.findViewById(R.id.text_qty);
         ImageView imageView = (ImageView) convertView.findViewById(R.id.iconid);
         ShoppingMart m = movieItems.get(position);
-        pilihan.setText("Nama : "+ m.get_pilihan());
+        pilihan.setText("pilihan : "+ m.get_plh());
         nama.setText("Nama : "+ m.get_nama());
-        nohp.setText("Harga : Rp "+ m.get_nohp());
-        qty.setText("stok : "+ m.get_qty());
+        nohp.setText("No. HP "+ m.get_nohp());
+        qty.setText("QTY : "+ m.get_qty());
         return convertView;
     }
 }

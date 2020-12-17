@@ -50,14 +50,14 @@ public class MainCreate extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }else if (sQty.equals("")) {
                     eQty.requestFocus();
-                    Toast.makeText(MainCreate.this, "Silahkan isi Nomer Telpon Anda",
+                    Toast.makeText(MainCreate.this, "Silahkan isi Quantity",
                             Toast.LENGTH_SHORT).show();
                 }else {
                     ePlh.setText("");
                     eNama.setText("");
                     eNohp.setText("");
                     eQty.setText("");
-                    Toast.makeText(MainCreate.this, "Data telah ditambah",
+                    Toast.makeText(MainCreate.this, "Pesanan anda telah ditambahkan",
                             Toast.LENGTH_SHORT).show();
                     db.CreateShopping(new ShoppingMart(null, sPlh, sNama, sNohp, sQty));
                     Intent a = new Intent(MainCreate.this, MainActivity.class);
